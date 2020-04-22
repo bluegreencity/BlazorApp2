@@ -1,0 +1,50 @@
+﻿@page "/template"
+<h3>Template</h3>
+
+<TableTemplate Items="pets">
+    <TableHeader>
+        <th>ID</th>
+        <th>Name</th>
+    </TableHeader>
+    <RowTemplate>
+        <td>@context.PetId</td>
+        <td>@context.Name</td>
+    </RowTemplate>
+</TableTemplate>
+
+<TableTemplate Items="pets">
+    <TableHeader>
+        <th>ID</th>
+        <th>Name</th>
+    </TableHeader>
+    <RowTemplate Context="pet">
+        <td>@pet.PetId</td>
+        <td>@pet.Name</td>
+    </RowTemplate>
+</TableTemplate>
+
+<TableTemplate Items="pets" Context="pet">
+    <TableHeader>
+        <th>ID</th>
+        <th>Name</th>
+    </TableHeader>
+    <RowTemplate>
+        <td>@pet.PetId</td>
+        <td>@pet.Name</td>
+    </RowTemplate>
+</TableTemplate>
+
+<ListViewTemplate Items="pets" TItem="PetItem">
+    <ItemTemplate Context="pet">
+        <li>@pet.Name</li>
+    </ItemTemplate>
+</ListViewTemplate>
+
+
+@code {
+    List<PetItem> pets = new List<PetItem> { 
+        new PetItem { Name = "cat", PetId = "1" }, 
+        new PetItem { Name = "dog", PetId = "2" }, 
+        new PetItem { Name = "tiger", PetId = "3" } 
+    };
+}
