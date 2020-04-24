@@ -1,0 +1,9 @@
+﻿@layout MainLayout2
+@page "/routerapptest/{Name}"
+
+<h4>Name : @Name </h4>
+
+@code {
+    [Parameter]
+    public string Name { get; set; }
+}
